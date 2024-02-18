@@ -1,0 +1,21 @@
+syntax = "proto3";
+package main.proto;
+
+option java_package = "main.proto";
+option java_multiple_files = true;
+
+service PingService {
+    rpc sendPing(PingMessage) returns (PongMessage);
+}
+
+
+message PingMessage {
+	int32 id = 1;
+    string message = 2;
+}
+
+message PongMessage {
+    int32 id = 1;
+    string message = 2;
+	int32 pingId = 3;
+}
