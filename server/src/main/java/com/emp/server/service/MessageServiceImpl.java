@@ -16,7 +16,7 @@ public class MessageServiceImpl extends PingServiceGrpc.PingServiceImplBase {
     @Override
     public void sendPing(PingMessage request, StreamObserver<PongMessage> responseObserver) {
         if ("ping".equalsIgnoreCase(request.getMessage())) {
-            log.info("Received ping with ID " + request.getMessage());
+            log.info("Received ping with ID " + request.getId());
             responseObserver.onNext(PongMessage.newBuilder()
                     .setId(new Random().nextInt())
                     .setMessage("pong")
